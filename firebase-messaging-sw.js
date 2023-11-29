@@ -19,6 +19,9 @@ const messaging = firebase.messaging()
 
 
 messaging.onBackgroundMessage(payload => {
+
+    console.log("backgroundMessage: ", backgroundMessage);
+
     const notificationTitle = 'Background Message Title';
     const notificationOptions = {
         body: notificationTitle,
