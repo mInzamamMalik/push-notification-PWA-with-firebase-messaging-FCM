@@ -63,10 +63,32 @@
 
         messaging.onMessage(payload => {
             console.log('Message received. ', payload);
+            showNotification(payload);
+
+            // // sample received notification payload
+            // const payload = {
+            //     "data": {
+            //         "gcm.n.e": "1",
+            //         "google.c.a.ts": "1710911594",
+            //         "google.c.a.udt": "0",
+            //         "google.c.a.e": "1",
+            //         "google.c.a.c_id": "5071583886345975883",
+            //         "google.c.a.c_l": "notification name abc"
+            //     },
+            //     "from": "359980592837",
+            //     "priority": "high",
+            //     "notification": {
+            //         "title": "abc title",
+            //         "body": "abc text",
+            //         "tag": "campaign_collapse_key_5071583886345975883",
+            //         "image": "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
+            //     },
+            //     "fcmMessageId": "8e5c7bab-d551-458a-b34a-559cf824bb36",
+            //     "collapse_key": "campaign_collapse_key_5071583886345975883"
+            // }
+
         });
 
-
-        console.log("window.Notification: ", window.Notification);
         if (window.Notification) {
             if (Notification.permission === 'granted') {
                 // send_notification();
@@ -80,7 +102,32 @@
         }
 
 
-        function showNotification() {
+        function showNotification(payload) {
+
+            console.log('attempt to show notification dialog');
+
+            // // sample received notification payload
+            // const payload = {
+            //     "data": {
+            //         "gcm.n.e": "1",
+            //         "google.c.a.ts": "1710911594",
+            //         "google.c.a.udt": "0",
+            //         "google.c.a.e": "1",
+            //         "google.c.a.c_id": "5071583886345975883",
+            //         "google.c.a.c_l": "notification name abc"
+            //     },
+            //     "from": "359980592837",
+            //     "priority": "high",
+            //     "notification": {
+            //         "title": "abc title",
+            //         "body": "abc text",
+            //         "tag": "campaign_collapse_key_5071583886345975883",
+            //         "image": "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
+            //     },
+            //     "fcmMessageId": "8e5c7bab-d551-458a-b34a-559cf824bb36",
+            //     "collapse_key": "campaign_collapse_key_5071583886345975883"
+            // }
+            
             let notificationOptions = {
                 body: 'Some Notification information',
                 icon: '<>'
